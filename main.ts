@@ -38,7 +38,8 @@ namespace mbit_Display {
         ON =1
     }
 
-    //% blockId=mbit_LED1 block="LED|端子 %pin|状態 %value"
+    /** 指定した端子につないだ LED を点灯または消灯します。 */
+    //% blockId=mbit_LED1 block="LED の端子 %pin を %value"
     //% weight=5
     //% blockGap=8
     //% color="#C814B8"
@@ -49,7 +50,8 @@ namespace mbit_Display {
 
     }
 
-    //% blockId=mbit_LED2 block="LED|端子 %pin|明るさ %value"
+    /** 指定した端子の LED の明るさを 0〜255 で設定します。0 は消灯、255 は最大です。 */
+    //% blockId=mbit_LED2 block="LED の端子 %pin の明るさを %value にする"
     //% weight=4
     //% blockGap=8
     //% color="#C814B8"
@@ -61,7 +63,8 @@ namespace mbit_Display {
 
     }
 
-    //% blockId=mbit_BreathLED block="呼吸ライト|端子 %pin"
+    /** LED を徐々に明るくしてから暗くします。1 回の実行で約 2 秒かかります。 */
+    //% blockId=mbit_BreathLED block="LED の端子 %pin をゆっくり明滅させる"
     //% weight=3
     //% blockGap=8
     //% color="#C814B8"
@@ -82,7 +85,8 @@ namespace mbit_Display {
 
     }
 
-    //% blockId=mbit_RGB block="RGB LED|赤の端子 %pin1|緑の端子 %pin2|青の端子 %pin3|赤 %value1|緑 %value2|青 %value3"
+    /** RGB LED の赤・緑・青の明るさをそれぞれ 0〜255 で設定します。 */
+    //% blockId=mbit_RGB block="RGB LED の端子 赤 %pin1 緑 %pin2 青 %pin3|明るさ 赤 %value1 緑 %value2 青 %value3"
     //% weight=2
     //% blockGap=8
     //% color="#C814B8"
@@ -95,7 +99,8 @@ namespace mbit_Display {
         pins.analogWritePin(pin3, value3 * 1024 / 256);
 
     }
-    //% blockId=mbit_RGB2 block="RGB LED|赤の端子 %pin1|緑の端子 %pin2|青の端子 %pin3|色 %value"
+    /** RGB LED を選んだ色で点灯します。「消灯」で消すこともできます。 */
+    //% blockId=mbit_RGB2 block="RGB LED の端子 赤 %pin1 緑 %pin2 青 %pin3|色を %value にする"
     //% weight=1
     //% blockGap=8
     //% color="#C814B8"
@@ -178,7 +183,8 @@ namespace mbit_Sensor {
     }
     
 
-    //% blockId=mbit_Voice_Sensor block="音センサー|端子 %pin|状態 %value"
+    /** 音センサーが選んだ状態なら真、違う場合は偽を返します。 */
+    //% blockId=mbit_Voice_Sensor block="音センサーの端子 %pin が %value"
     //% weight=100
     //% blockGap=10
     //% color="#87CEEB"
@@ -203,7 +209,8 @@ namespace mbit_Sensor {
             control.waitMicros(13);
         }
     }
-    //% blockId=mbit_IR_Sensor block="赤外線センサー|端子 %pin|障害物を %value"
+    /** 赤外線センサーが選んだ状態なら真、違う場合は偽を返します。 */
+    //% blockId=mbit_IR_Sensor block="赤外線センサーの端子 %pin で障害物を %value"
     //% weight=100
     //% blockGap=10
     //% color="#87CEEB"
@@ -221,7 +228,8 @@ namespace mbit_Sensor {
 
     }
 
-    //% blockId=mbit_IR_Send block="赤外線送信|端子 %pin"
+    /** P9 から赤外線信号を送ります。端子の選択欄はありますが、現在の実装では常に P9 を使います。 */
+    //% blockId=mbit_IR_Send block="赤外線を送信する（P9）|端子 %pin"
     //% weight=100
     //% blockGap=10
     //% color="#87CEEB"
@@ -233,7 +241,8 @@ namespace mbit_Sensor {
 
     }
    
-    //% blockId=mbit_ultrasonic block="超音波センサー|Trig %Trig|Echo %Echo"
+    /** 超音波センサーで測った距離を cm で返します。応答がない場合は 0 になります。 */
+    //% blockId=mbit_ultrasonic block="超音波センサーの距離 (cm)|Trig %Trig Echo %Echo"
     //% color="#87CEEB"
     //% weight=100
     //% blockGap=10
@@ -272,7 +281,7 @@ namespace mbit_Input {
         Left,
         //% blockId="Right" block="右"
         Right,
-        //% blockId="Press" block="押す"
+        //% blockId="Press" block="押されている"
         Press
     }
 
@@ -283,13 +292,14 @@ namespace mbit_Input {
         Touch = 1
     }
     export enum enButton {
-        //% blockId="Press" block="押す"
+        //% blockId="Press" block="押されている"
         Press = 0,
-        //% blockId="Realse" block="離す"
+        //% blockId="Realse" block="離されている"
         Realse = 1
     }
 
-    //% blockId=mbit_TouchPad block="タッチセンサー|端子 %pin|状態 %value"
+    /** タッチセンサーが選んだ状態なら真、違う場合は偽を返します。 */
+    //% blockId=mbit_TouchPad block="タッチセンサーの端子 %pin が %value"
     //% weight=100
     //% blockGap=10
     //% color="#808080"
@@ -305,7 +315,8 @@ namespace mbit_Input {
         }
 
     }
-    //% blockId=mbit_Rocker block="ジョイスティック|VRX %pin1|VRY %pin2|SW %pin3|状態 %value"
+    /** ジョイスティックの向きや押し込みが選んだ状態なら真を返します。押し込みは方向より優先されます。 */
+    //% blockId=mbit_Rocker block="ジョイスティックが %value|VRX %pin1 VRY %pin2 SW %pin3"
     //% weight=100
     //% blockGap=10
     //% color="#808080"
@@ -349,7 +360,8 @@ namespace mbit_Input {
 
     }
 
-    //% blockId=mbit_Button block="ボタン|端子 %pin|状態 %value"
+    /** ボタンが選んだ状態なら真、違う場合は偽を返します。 */
+    //% blockId=mbit_Button block="ボタンの端子 %pin が %value"
     //% weight=100
     //% blockGap=10
     //% color="#808080"
@@ -381,7 +393,8 @@ namespace mbit_Music {
         Beep
     }
 
-    //% blockId=mbit_Buzzer block="ブザー|端子 %pin|状態 %value"
+    /** 指定した端子のブザーを鳴らすか止めるかを設定します。 */
+    //% blockId=mbit_Buzzer block="ブザーの端子 %pin を %value"
     //% weight=100
     //% blockGap=10 
     //% color="#D2691E"
@@ -403,7 +416,8 @@ namespace mbit_Music {
 //% color="#0000CD" weight=21 icon="\uf185" block="m:bit モーター"
 namespace mbit_Motor {
 
-    //% blockId=mbit_Fan block="ファン|端子 %pin|速さ %value"
+    /** ファンの速さを 0〜1023 で設定します。0 は停止、1023 は最大です。 */
+    //% blockId=mbit_Fan block="ファンの端子 %pin の速さを %value にする"
     //% weight=100
     //% blockGap=10
     //% color="#0000CD"
@@ -415,7 +429,8 @@ namespace mbit_Motor {
 
     }
 
-    //% blockId=mbit_Servo block="サーボ|端子 %pin|角度 %value"
+    /** 指定した端子のサーボの角度を 0〜180 度で設定します。 */
+    //% blockId=mbit_Servo block="サーボの端子 %pin の角度を %value 度にする"
     //% weight=100
     //% blockGap=10
     //% color="#0000CD"
@@ -494,7 +509,6 @@ namespace mbit_Robot {
         blues,
 
         //% block="誕生日"
-
         birthday,
         //% block="結婚式"
         wedding,
@@ -777,11 +791,8 @@ namespace mbit_Robot {
 
     }
 
-    /**
-     * *****************************************************************
-     * @param index
-     */
-    //% blockId=mbit_RGB_Car_Big2 block="ロボットの RGB ライト|色 %value"
+    /** ロボットの RGB ライトを選んだ色にします。「消灯」で消すこともできます。 */
+    //% blockId=mbit_RGB_Car_Big2 block="ロボットのライトの色を %value にする"
     //% weight=101
     //% blockGap=10
     //% color="#C814B8"
@@ -839,7 +850,8 @@ namespace mbit_Robot {
             }
         }
     }
-    //% blockId=mbit_RGB_Car_Big block="ロボットの RGB ライト|赤 %value1|緑 %value2|青 %value3"
+    /** ロボットの RGB ライトの赤・緑・青の明るさをそれぞれ 0〜255 で設定します。 */
+    //% blockId=mbit_RGB_Car_Big block="ロボットのライトの明るさ|赤 %value1 緑 %value2 青 %value3"
     //% weight=100
     //% blockGap=10
     //% color="#C814B8"
@@ -864,7 +876,8 @@ namespace mbit_Robot {
 
     }
 
-    //% blockId=mbit_RGB_Car_Program block="RGB ライトを流れるように点灯"
+    /** P16 につながった 3 個の NeoPixel を操作するための値を返します。このブロックだけでは点灯しません。 */
+    //% blockId=mbit_RGB_Car_Program block="ロボットの NeoPixel ライト"
     //% weight=99
     //% blockGap=10
     //% color="#C814B8"
@@ -878,7 +891,8 @@ namespace mbit_Robot {
     }
 
 
-	//% blockId=mbit_ultrasonic_car block="超音波センサーの距離 (cm)"
+	/** ロボットの超音波センサーの距離を cm で返します。5 回測定し、両端の値を除いた 3 回の平均を使います。 */
+	//% blockId=mbit_ultrasonic_car block="ロボットの超音波センサーの距離 (cm)"
     //% color="#006400"
     //% weight=98
     //% blockGap=10
@@ -903,7 +917,8 @@ namespace mbit_Robot {
         return  Math.floor(length);
     }
 
-    //% blockId=mbit_Music_Car block="ロボットで音楽を再生|%index"
+    /** 選んだ内蔵メロディーを 1 回再生します。 */
+    //% blockId=mbit_Music_Car block="メロディー %index を再生する"
     //% weight=97
     //% blockGap=10
     //% color="#006400"
@@ -932,7 +947,8 @@ namespace mbit_Robot {
             case enMusic.power_down: music.beginMelody(music.builtInMelody(Melodies.PowerDown), MelodyOptions.Once); break;
         }
     }
-    //% blockId=mbit_Servo_Car block="ロボットのサーボ|番号 %num|角度 %value"
+    /** ロボットのサーボ S1〜S3 の角度を 0〜180 度で設定します。 */
+    //% blockId=mbit_Servo_Car block="ロボットのサーボ %num を %value 度にする"
     //% weight=96
     //% blockGap=10
     //% color="#006400"
@@ -947,7 +963,8 @@ namespace mbit_Robot {
 
     }
 
-    //% blockId=mbit_Avoid_Sensor block="障害物センサー|%value"
+    /** 障害物センサーが選んだ状態なら真を返します。しきい値は 800 です。 */
+    //% blockId=mbit_Avoid_Sensor block="ロボットの障害物センサーが %value"
     //% weight=95
     //% blockGap=10
     //% color="#006400"
@@ -990,7 +1007,8 @@ namespace mbit_Robot {
         return temp;
 
     }
-    //% blockId=mbit_Line_Sensor block="ライントレースセンサー|位置 %direct|色 %value"
+    /** 左右どちらかのラインセンサーが選んだ色を検出すると真を返します。 */
+    //% blockId=mbit_Line_Sensor block="ロボットの %direct のラインセンサーが %value"
     //% weight=94
     //% blockGap=10
     //% color="#006400"
@@ -1035,7 +1053,8 @@ namespace mbit_Robot {
         return temp;
 
     }
-    //% blockId=mbit_CarCtrl block="ロボットを動かす|%index"
+    /** ロボットを選んだ方向へ動かします。停止以外は最大速度で動きます。 */
+    //% blockId=mbit_CarCtrl block="ロボットを %index させる"
     //% weight=93
     //% blockGap=10
     //% color="#006400"
@@ -1051,7 +1070,8 @@ namespace mbit_Robot {
             case CarState.Car_SpinRight: Car_spinright(255, 255); break;
         }
     }
-    //% blockId=mbit_CarCtrlSpeed block="ロボットを動かす|%index|速さ %speed"
+    /** ロボットを指定した速さで動かします。速さは 0〜255 で指定します。 */
+    //% blockId=mbit_CarCtrlSpeed block="ロボットを %index させる|速さ %speed"
     //% weight=92
     //% blockGap=10
     //% speed.min=0 speed.max=255
@@ -1068,7 +1088,8 @@ namespace mbit_Robot {
             case CarState.Car_SpinRight: Car_spinright(speed, speed); break;
         }
     }
-    //% blockId=mbit_CarCtrlSpeed2 block="ロボットを動かす|%index|速さ1 %speed1|速さ2 %speed2"
+    /** 2 つのモーターの速さをそれぞれ 0〜255 で指定します。左折・右折では片方の指定値を使いません。 */
+    //% blockId=mbit_CarCtrlSpeed2 block="ロボットを %index させる|モーター1の速さ %speed1 モーター2の速さ %speed2"
     //% weight=91
     //% blockGap=10
     //% speed1.min=0 speed1.max=255 speed2.min=0 speed2.max=255

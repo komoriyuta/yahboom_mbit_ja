@@ -1,6 +1,6 @@
 {
     "name": "mbit",
-    "version": "3.0.6",
+    "version": "3.0.7",
     "description": "Yahboom m:bit 用の日本語拡張機能",
     "license": "MIT",
     "dependencies": {
@@ -11,7 +11,9 @@
         "README.md",
         "main.ts",
         "_locales/en/mbit-strings.json",
-        "_locales/ja/mbit-strings.json"
+        "_locales/ja/mbit-strings.json",
+        "_locales/en/mbit-jsdoc-strings.json",
+        "_locales/ja/mbit-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"
