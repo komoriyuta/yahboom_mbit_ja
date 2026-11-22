@@ -1,12 +1,18 @@
-# mbit
+# Yahboom m:bit 日本語版
 
-Extension for Yahboom_mbit_en V3.0.4
+[Yahboom m:bit 英語版](https://github.com/lzty634158/yahboom_mbit_en)をもとに、MakeCode のブロック表示を日本語化した拡張機能です。
 
-## License
+## 使い方
 
-MIT
+1. [micro:bit MakeCode](https://makecode.microbit.org/) でプロジェクトを開きます。
+2. 「拡張機能」を開き、次の URL を検索して追加します。
+
+   `https://github.com/komoriyuta/yahboom_mbit_ja`
+
+## ライセンス
+
+MIT（元のリポジトリと同じ）
 
 ## Supported targets
 
 * for PXT/microbit
-(The metadata above is needed for package search.)

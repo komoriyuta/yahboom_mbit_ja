@@ -7,38 +7,38 @@ load dependency
 
 
 
-//% color="#C814B8" weight=25 icon="\uf1d4"
+//% color="#C814B8" weight=25 icon="\uf1d4" block="m:bit 表示"
 namespace mbit_Display {
     
     export enum enColor {
 
-        //% blockId="OFF" block="off"
+        //% blockId="OFF" block="消灯"
         OFF = 0,
-        //% blockId="Red" block="red"
+        //% blockId="Red" block="赤"
         Red,
-        //% blockId="Green" block="green"
+        //% blockId="Green" block="緑"
         Green,
-        //% blockId="Blue" block="blue"
+        //% blockId="Blue" block="青"
         Blue,
-        //% blockId="White" block="white"
+        //% blockId="White" block="白"
         White,
-        //% blockId="Cyan" block="cyan"
+        //% blockId="Cyan" block="水色"
         Cyan,
-        //% blockId="Pinkish" block="magenta"
+        //% blockId="Pinkish" block="紫"
         Pinkish,
-        //% blockId="Yellow" block="yellow"
+        //% blockId="Yellow" block="黄"
         Yellow,
 
     }
     export enum enLED1 {
         
-        //% blockId="OFF" block="off"
+        //% blockId="OFF" block="消灯"
         OFF = 0,
-        //% blockId="ON" block="on"
+        //% blockId="ON" block="点灯"
         ON =1
     }
 
-    //% blockId=mbit_LED1 block="LED1|pin %pin|value %value"
+    //% blockId=mbit_LED1 block="LED|端子 %pin|状態 %value"
     //% weight=5
     //% blockGap=8
     //% color="#C814B8"
@@ -49,7 +49,7 @@ namespace mbit_Display {
 
     }
 
-    //% blockId=mbit_LED2 block="LED2|pin %pin|value %value"
+    //% blockId=mbit_LED2 block="LED|端子 %pin|明るさ %value"
     //% weight=4
     //% blockGap=8
     //% color="#C814B8"
@@ -61,7 +61,7 @@ namespace mbit_Display {
 
     }
 
-    //% blockId=mbit_BreathLED block="BreathLED|pin %pin"
+    //% blockId=mbit_BreathLED block="呼吸ライト|端子 %pin"
     //% weight=3
     //% blockGap=8
     //% color="#C814B8"
@@ -82,7 +82,7 @@ namespace mbit_Display {
 
     }
 
-    //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
+    //% blockId=mbit_RGB block="RGB LED|赤の端子 %pin1|緑の端子 %pin2|青の端子 %pin3|赤 %value1|緑 %value2|青 %value3"
     //% weight=2
     //% blockGap=8
     //% color="#C814B8"
@@ -95,7 +95,7 @@ namespace mbit_Display {
         pins.analogWritePin(pin3, value3 * 1024 / 256);
 
     }
-    //% blockId=mbit_RGB2 block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value %value"
+    //% blockId=mbit_RGB2 block="RGB LED|赤の端子 %pin1|緑の端子 %pin2|青の端子 %pin3|色 %value"
     //% weight=1
     //% blockGap=8
     //% color="#C814B8"
@@ -160,25 +160,25 @@ namespace mbit_Display {
  *  传感器类 ***************************************************************************************************************************** 
  ****************************************************************************************************************************************/
 
-//% color="#87CEEB" weight=24 icon="\uf1b6"
+//% color="#87CEEB" weight=24 icon="\uf1b6" block="m:bit センサー"
 namespace mbit_Sensor {
 
     export enum enVoice {
-        //% blockId="Voice" block="sound"
+        //% blockId="Voice" block="音あり"
         Voice = 0,
-        //% blockId="NoVoice" block="silence"
+        //% blockId="NoVoice" block="音なし"
         NoVoice = 1
     }
 
     export enum enIR {
-        //% blockId="Get" block="detected"
+        //% blockId="Get" block="検出"
         Get = 0,
-        //% blockId="NoVoice" block="undetected"
+        //% blockId="NoVoice" block="未検出"
         NoGet = 1
     }
     
 
-    //% blockId=mbit_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
+    //% blockId=mbit_Voice_Sensor block="音センサー|端子 %pin|状態 %value"
     //% weight=100
     //% blockGap=10
     //% color="#87CEEB"
@@ -203,7 +203,7 @@ namespace mbit_Sensor {
             control.waitMicros(13);
         }
     }
-    //% blockId=mbit_IR_Sensor block="IR_Sensor|pin %pin| |%value|obstacle"
+    //% blockId=mbit_IR_Sensor block="赤外線センサー|端子 %pin|障害物を %value"
     //% weight=100
     //% blockGap=10
     //% color="#87CEEB"
@@ -221,7 +221,7 @@ namespace mbit_Sensor {
 
     }
 
-    //% blockId=mbit_IR_Send block="IR_Send|pin %pin"
+    //% blockId=mbit_IR_Send block="赤外線送信|端子 %pin"
     //% weight=100
     //% blockGap=10
     //% color="#87CEEB"
@@ -233,7 +233,7 @@ namespace mbit_Sensor {
 
     }
    
-    //% blockId=mbit_ultrasonic block="Ultrasonic|Trig %Trig|Echo %Echo"
+    //% blockId=mbit_ultrasonic block="超音波センサー|Trig %Trig|Echo %Echo"
     //% color="#87CEEB"
     //% weight=100
     //% blockGap=10
@@ -258,38 +258,38 @@ namespace mbit_Sensor {
  *  Input *****************************************************************************************************************************
  ****************************************************************************************************************************************/
 
-//% color="#808080" weight=23 icon="\uf11c"
+//% color="#808080" weight=23 icon="\uf11c" block="m:bit 入力"
 namespace mbit_Input {
 
     export enum enRocker {
-        //% blockId="Nostate" block="No"
+        //% blockId="Nostate" block="操作なし"
         Nostate = 0,
-        //% blockId="Up" block="up"
+        //% blockId="Up" block="上"
         Up,
-        //% blockId="Down" block="down"
+        //% blockId="Down" block="下"
         Down,
-        //% blockId="Left" block="left"
+        //% blockId="Left" block="左"
         Left,
-        //% blockId="Right" block="right"
+        //% blockId="Right" block="右"
         Right,
-        //% blockId="Press" block="press"
+        //% blockId="Press" block="押す"
         Press
     }
 
     export enum enTouch {
-        //% blockId="NoTouch" block="untouched"
+        //% blockId="NoTouch" block="触れていない"
         NoTouch = 0,
-        //% blockId="Touch" block="touched"
+        //% blockId="Touch" block="触れている"
         Touch = 1
     }
     export enum enButton {
-        //% blockId="Press" block="press"
+        //% blockId="Press" block="押す"
         Press = 0,
-        //% blockId="Realse" block="release"
+        //% blockId="Realse" block="離す"
         Realse = 1
     }
 
-    //% blockId=mbit_TouchPad block="TouchPad|pin %pin|value %value"
+    //% blockId=mbit_TouchPad block="タッチセンサー|端子 %pin|状態 %value"
     //% weight=100
     //% blockGap=10
     //% color="#808080"
@@ -305,7 +305,7 @@ namespace mbit_Input {
         }
 
     }
-    //% blockId=mbit_Rocker block="Rocker|VRX %pin1|VRY %pin2|SW %pin3|value %value"
+    //% blockId=mbit_Rocker block="ジョイスティック|VRX %pin1|VRY %pin2|SW %pin3|状態 %value"
     //% weight=100
     //% blockGap=10
     //% color="#808080"
@@ -349,7 +349,7 @@ namespace mbit_Input {
 
     }
 
-    //% blockId=mbit_Button block="Button|pin %pin|value %value"
+    //% blockId=mbit_Button block="ボタン|端子 %pin|状態 %value"
     //% weight=100
     //% blockGap=10
     //% color="#808080"
@@ -371,17 +371,17 @@ namespace mbit_Input {
  *    音乐类 *****************************************************************************************************************************
  ****************************************************************************************************************************************/
 
-//% color="#D2691E" weight=22 icon="\uf001"
+//% color="#D2691E" weight=22 icon="\uf001" block="m:bit 音楽"
 namespace mbit_Music {
     export enum enBuzzer {
 
-        //% blockId="NoBeep" block="silence"
+        //% blockId="NoBeep" block="音なし"
         NoBeep = 0,
-        //% blockId="Beep" block="sound"
+        //% blockId="Beep" block="音あり"
         Beep
     }
 
-    //% blockId=mbit_Buzzer block="Buzzer|pin %pin|value %value"
+    //% blockId=mbit_Buzzer block="ブザー|端子 %pin|状態 %value"
     //% weight=100
     //% blockGap=10 
     //% color="#D2691E"
@@ -400,10 +400,10 @@ namespace mbit_Music {
  *    电机类 *****************************************************************************************************************************
  ****************************************************************************************************************************************/
 
-//% color="#0000CD" weight=21 icon="\uf185"
+//% color="#0000CD" weight=21 icon="\uf185" block="m:bit モーター"
 namespace mbit_Motor {
 
-    //% blockId=mbit_Fan block="Fan|pin %pin|speed %value"
+    //% blockId=mbit_Fan block="ファン|端子 %pin|速さ %value"
     //% weight=100
     //% blockGap=10
     //% color="#0000CD"
@@ -415,7 +415,7 @@ namespace mbit_Motor {
 
     }
 
-    //% blockId=mbit_Servo block="Servo|pin %pin|value %value"
+    //% blockId=mbit_Servo block="サーボ|端子 %pin|角度 %value"
     //% weight=100
     //% blockGap=10
     //% color="#0000CD"
@@ -429,7 +429,7 @@ namespace mbit_Motor {
 
 }
 
-//% color="#006400" weight=20 icon="\uf1b9"
+//% color="#006400" weight=20 icon="\uf1b9" block="m:bit ロボット"
 namespace mbit_Robot {
 
     const PCA9685_ADD = 0x41
@@ -456,68 +456,89 @@ namespace mbit_Robot {
 
     export enum enColor {
 
-        //% blockId="OFF" block="off"
+        //% blockId="OFF" block="消灯"
         OFF = 0,
-        //% blockId="Red" block="red"
+        //% blockId="Red" block="赤"
         Red,
-        //% blockId="Green" block="green"
+        //% blockId="Green" block="緑"
         Green,
-        //% blockId="Blue" block="blue"
+        //% blockId="Blue" block="青"
         Blue,
-        //% blockId="White" block="white"
+        //% blockId="White" block="白"
         White,
-        //% blockId="Cyan" block="cyan"
+        //% blockId="Cyan" block="水色"
         Cyan,
-        //% blockId="Pinkish" block="magenta"
+        //% blockId="Pinkish" block="紫"
         Pinkish,
-        //% blockId="Yellow" block="yellow"
+        //% blockId="Yellow" block="黄"
         Yellow,
 
     }
     export enum enMusic {
 
+        //% block="運命"
         dadadum = 0,
+        //% block="エンターテイナー"
         entertainer,
+        //% block="プレリュード"
         prelude,
+        //% block="歓喜の歌"
         ode,
+        //% block="ニャン"
         nyan,
+        //% block="着信音"
         ringtone,
+        //% block="ファンク"
         funk,
+        //% block="ブルース"
         blues,
 
+        //% block="誕生日"
+
         birthday,
+        //% block="結婚式"
         wedding,
+        //% block="葬送"
         funereal,
+        //% block="オチ"
         punchline,
+        //% block="悪役"
         baddy,
+        //% block="追跡"
         chase,
+        //% block="バディン"
         ba_ding,
+        //% block="ワーワーワーワー"
         wawawawaa,
+        //% block="ジャンプアップ"
         jump_up,
+        //% block="ジャンプダウン"
         jump_down,
+        //% block="パワーアップ"
         power_up,
+        //% block="パワーダウン"
         power_down
     }
     export enum enPos {
 
-        //% blockId="LeftState" block="left state"
+        //% blockId="LeftState" block="左"
         LeftState = 0,
-        //% blockId="RightState" block="right state"
+        //% blockId="RightState" block="右"
         RightState = 1
     }
 
     export enum enLineState {
-        //% blockId="White" block="white"
+        //% blockId="White" block="白"
         White = 0,
-        //% blockId="Black" block="black"
+        //% blockId="Black" block="黒"
         Black = 1
 
     }
     
     export enum enAvoidState {
-        //% blockId="OBSTACLE" block="with obstacles"
+        //% blockId="OBSTACLE" block="障害物あり"
         OBSTACLE = 0,
-        //% blockId="NOOBSTACLE" block="without obstacles"
+        //% blockId="NOOBSTACLE" block="障害物なし"
         NOOBSTACLE = 1
 
     }
@@ -530,19 +551,19 @@ namespace mbit_Robot {
         S3
     }
     export enum CarState {
-        //% blockId="Car_Run" block="forward"
+        //% blockId="Car_Run" block="前進"
         Car_Run = 1,
-        //% blockId="Car_Back" block="back"
+        //% blockId="Car_Back" block="後退"
         Car_Back = 2,
-        //% blockId="Car_Left" block="turn left"
+        //% blockId="Car_Left" block="左折"
         Car_Left = 3,
-        //% blockId="Car_Right" block="turn right"
+        //% blockId="Car_Right" block="右折"
         Car_Right = 4,
-        //% blockId="Car_Stop" block="stop"
+        //% blockId="Car_Stop" block="停止"
         Car_Stop = 5,
-        //% blockId="Car_SpinLeft" block="rotate left"
+        //% blockId="Car_SpinLeft" block="左回転"
         Car_SpinLeft = 6,
-        //% blockId="Car_SpinRight" block="rotate right"
+        //% blockId="Car_SpinRight" block="右回転"
         Car_SpinRight = 7
     }
 
@@ -760,7 +781,7 @@ namespace mbit_Robot {
      * *****************************************************************
      * @param index
      */
-    //% blockId=mbit_RGB_Car_Big2 block="RGB_Car_Big2|value %value"
+    //% blockId=mbit_RGB_Car_Big2 block="ロボットの RGB ライト|色 %value"
     //% weight=101
     //% blockGap=10
     //% color="#C814B8"
@@ -818,7 +839,7 @@ namespace mbit_Robot {
             }
         }
     }
-    //% blockId=mbit_RGB_Car_Big block="RGB_Car_Big|value1 %value1|value2 %value2|value3 %value3"
+    //% blockId=mbit_RGB_Car_Big block="ロボットの RGB ライト|赤 %value1|緑 %value2|青 %value3"
     //% weight=100
     //% blockGap=10
     //% color="#C814B8"
@@ -843,7 +864,7 @@ namespace mbit_Robot {
 
     }
 
-    //% blockId=mbit_RGB_Car_Program block="RGB_Car_Program"
+    //% blockId=mbit_RGB_Car_Program block="RGB ライトを流れるように点灯"
     //% weight=99
     //% blockGap=10
     //% color="#C814B8"
@@ -857,7 +878,7 @@ namespace mbit_Robot {
     }
 
 
-	//% blockId=mbit_ultrasonic_car block="ultrasonic return distance(cm)"
+	//% blockId=mbit_ultrasonic_car block="超音波センサーの距離 (cm)"
     //% color="#006400"
     //% weight=98
     //% blockGap=10
@@ -882,7 +903,7 @@ namespace mbit_Robot {
         return  Math.floor(length);
     }
 
-    //% blockId=mbit_Music_Car block="Music_Car|%index"
+    //% blockId=mbit_Music_Car block="ロボットで音楽を再生|%index"
     //% weight=97
     //% blockGap=10
     //% color="#006400"
@@ -911,7 +932,7 @@ namespace mbit_Robot {
             case enMusic.power_down: music.beginMelody(music.builtInMelody(Melodies.PowerDown), MelodyOptions.Once); break;
         }
     }
-    //% blockId=mbit_Servo_Car block="Servo_Car|num %num|value %value"
+    //% blockId=mbit_Servo_Car block="ロボットのサーボ|番号 %num|角度 %value"
     //% weight=96
     //% blockGap=10
     //% color="#006400"
@@ -926,7 +947,7 @@ namespace mbit_Robot {
 
     }
 
-    //% blockId=mbit_Avoid_Sensor block="Avoid_Sensor|value %value"
+    //% blockId=mbit_Avoid_Sensor block="障害物センサー|%value"
     //% weight=95
     //% blockGap=10
     //% color="#006400"
@@ -969,7 +990,7 @@ namespace mbit_Robot {
         return temp;
 
     }
-    //% blockId=mbit_Line_Sensor block="Line_Sensor|direct %direct|value %value"
+    //% blockId=mbit_Line_Sensor block="ライントレースセンサー|位置 %direct|色 %value"
     //% weight=94
     //% blockGap=10
     //% color="#006400"
@@ -1014,7 +1035,7 @@ namespace mbit_Robot {
         return temp;
 
     }
-    //% blockId=mbit_CarCtrl block="CarCtrl|%index"
+    //% blockId=mbit_CarCtrl block="ロボットを動かす|%index"
     //% weight=93
     //% blockGap=10
     //% color="#006400"
@@ -1030,7 +1051,7 @@ namespace mbit_Robot {
             case CarState.Car_SpinRight: Car_spinright(255, 255); break;
         }
     }
-    //% blockId=mbit_CarCtrlSpeed block="CarCtrlSpeed|%index|speed %speed"
+    //% blockId=mbit_CarCtrlSpeed block="ロボットを動かす|%index|速さ %speed"
     //% weight=92
     //% blockGap=10
     //% speed.min=0 speed.max=255
@@ -1047,7 +1068,7 @@ namespace mbit_Robot {
             case CarState.Car_SpinRight: Car_spinright(speed, speed); break;
         }
     }
-    //% blockId=mbit_CarCtrlSpeed2 block="CarCtrlSpeed2|%index|speed1 %speed1|speed2 %speed2"
+    //% blockId=mbit_CarCtrlSpeed2 block="ロボットを動かす|%index|速さ1 %speed1|速さ2 %speed2"
     //% weight=91
     //% blockGap=10
     //% speed1.min=0 speed1.max=255 speed2.min=0 speed2.max=255
